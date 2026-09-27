@@ -10,6 +10,8 @@ activityKtx = "1.13.0"
 constraintlayout = "2.2.2"
 ksp = "2.3.12"
 room = "2.8.5"
+lifecycle = "2.11.0"
+recyclerview = "1.4.0"
 desugarJdkLibs = "2.1.5"
 
 [libraries]
@@ -24,6 +26,9 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugarJdkLibs" }
 
 [plugins]

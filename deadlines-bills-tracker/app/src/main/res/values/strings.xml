@@ -1,3 +1,65 @@
 <resources>
     <string name="app_name">Em Dia</string>
+
+    <string name="pair_format">%1$s · %2$s</string>
+    <string name="cd_add">Novo registro</string>
+    <string name="cd_notifications">Notificações</string>
+
+    <string name="home_summary_label">A pagar em %1$s</string>
+    <plurals name="home_completed_count">
+        <item quantity="one">+%d registro</item>
+        <item quantity="other">+%d registros</item>
+    </plurals>
+    <plurals name="home_completed_suffix">
+        <item quantity="one">concluído este mês</item>
+        <item quantity="other">concluídos este mês</item>
+    </plurals>
+    <string name="home_progress">%1$d%% CONCLUÍDO</string>
+    <string name="tab_all">Todos</string>
+    <string name="tab_payable">A pagar</string>
+    <string name="tab_receivable">A receber</string>
+    <string name="tab_deadlines">Prazos</string>
+    <string name="section_overdue">atrasados</string>
+    <string name="section_today">hoje</string>
+    <string name="section_next_days">próximos 7 dias</string>
+    <string name="section_later">mais adiante</string>
+    <string name="section_completed">concluídos</string>
+    <string name="empty_title">nenhum registro</string>
+    <string name="empty_text">Toque em + para cadastrar uma fatura ou um prazo.</string>
+
+    <string name="type_payable">a pagar</string>
+    <string name="type_receivable">a receber</string>
+    <string name="type_deadline">prazo</string>
+    <string name="status_pending">pendente</string>
+    <string name="status_overdue">atrasado</string>
+    <string name="status_paid">paga</string>
+    <string name="status_received">recebida</string>
+    <string name="status_delivered">entregue</string>
+    <string name="pill_paid">Paga</string>
+    <string name="pill_received">Recebida</string>
+    <string name="pill_delivered">Entregue</string>
+
+    <string name="relative_today">hoje</string>
+    <string name="relative_tomorrow">amanhã</string>
+    <string name="relative_yesterday">ontem</string>
+    <plurals name="relative_in_days">
+        <item quantity="one">em %d dia</item>
+        <item quantity="other">em %d dias</item>
+    </plurals>
+    <plurals name="relative_days_ago">
+        <item quantity="one">há %d dia</item>
+        <item quantity="other">há %d dias</item>
+    </plurals>
+
+    <string name="label_payee">Favorecido</string>
+    <string name="label_payer">Pagador</string>
+    <string name="label_reference">Referente a</string>
+    <string name="action_pay">Marcar como paga</string>
+    <string name="action_receive">Marcar como recebida</string>
+    <string name="action_deliver">Marcar como entregue</string>
+
+    <string name="remind_on_due_date">No dia</string>
+    <string name="remind_one_day">1 dia antes</string>
+    <string name="remind_three_days">3 dias antes</string>
+    <string name="remind_one_week">1 semana antes</string>
 </resources>
