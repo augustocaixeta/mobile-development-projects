@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_card"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNome"
+        style="@style/TextAppearance.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Supino Reto" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMeta"
+        style="@style/TextAppearance.Body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        tools:text="Peito" />
+
+</LinearLayout>
