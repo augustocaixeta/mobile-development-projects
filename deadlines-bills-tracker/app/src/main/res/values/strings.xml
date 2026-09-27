@@ -2,9 +2,12 @@
     <string name="app_name">Em Dia</string>
 
     <string name="pair_format">%1$s · %2$s</string>
+    <string name="cd_back">Voltar</string>
+    <string name="cd_more">Mais opções</string>
     <string name="cd_close">Fechar</string>
     <string name="cd_add">Novo registro</string>
     <string name="cd_notifications">Notificações</string>
+    <string name="cancel">Cancelar</string>
     <string name="state_on">Ligado</string>
     <string name="state_off">Desligado</string>
 
@@ -54,12 +57,59 @@
         <item quantity="other">há %d dias</item>
     </plurals>
 
+    <string name="metric_amount">Valor</string>
+    <string name="metric_remaining">Tempo restante</string>
+    <string name="metric_late">Em atraso</string>
+    <string name="metric_delivered">Entregue em</string>
+    <plurals name="duration_days">
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dias</item>
+    </plurals>
+    <string name="duration_hours">%d h</string>
+    <string name="duration_minutes">%d min</string>
+    <string name="due_today">vence hoje às %1$s</string>
+    <string name="due_tomorrow">vence amanhã às %1$s</string>
+    <plurals name="due_in">
+        <item quantity="one">vence em %1$d dia · %2$s</item>
+        <item quantity="other">vence em %1$d dias · %2$s</item>
+    </plurals>
+    <string name="overdue_today">venceu hoje às %1$s</string>
+    <plurals name="overdue_since">
+        <item quantity="one">venceu há %1$d dia · %2$s</item>
+        <item quantity="other">venceu há %1$d dias · %2$s</item>
+    </plurals>
+    <string name="completed_on">%1$s em %2$s</string>
+    <string name="delivery_on">entrega em %1$s às %2$s</string>
+    <string name="deadline_was">prazo era %1$s às %2$s</string>
+
     <string name="label_payee">Favorecido</string>
     <string name="label_payer">Pagador</string>
     <string name="label_reference">Referente a</string>
+    <string name="label_due">Vencimento</string>
+    <string name="label_delivery">Entrega</string>
+    <string name="label_repeat">Repetição</string>
+    <string name="label_created">Criado em</string>
+    <string name="repeat_monthly">Todo mês</string>
+    <string name="repeat_none">Não repete</string>
+    <string name="not_informed">Não informado</string>
+    <string name="detail_reminders">lembretes</string>
+    <plurals name="reminders_scheduled">
+        <item quantity="one">%d agendado</item>
+        <item quantity="other">%d agendados</item>
+    </plurals>
+    <string name="no_reminders">Nenhum lembrete configurado</string>
     <string name="action_pay">Marcar como paga</string>
     <string name="action_receive">Marcar como recebida</string>
     <string name="action_deliver">Marcar como entregue</string>
+    <string name="action_reopen">Reabrir registro</string>
+    <string name="action_edit">Editar registro</string>
+    <string name="menu_edit">Editar</string>
+    <string name="menu_delete">Excluir</string>
+    <string name="delete_title">Excluir registro?</string>
+    <string name="delete_message">Os lembretes pendentes também serão cancelados.</string>
+    <string name="delete_confirm">Excluir</string>
+    <string name="notice_completed">Registro concluído e lembretes cancelados</string>
+    <string name="notice_reopened">Registro reaberto e lembretes reagendados</string>
 
     <string name="form_new">Novo registro</string>
     <string name="form_edit">Editar registro</string>
