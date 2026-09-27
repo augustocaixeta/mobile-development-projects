@@ -1,12 +1,14 @@
 package br.edu.iftm.deadlinetracker.data
 
 import androidx.room.withTransaction
+import br.edu.iftm.deadlinetracker.scheduling.ReminderScheduler
 import br.edu.iftm.deadlinetracker.util.toEpochMillis
 import br.edu.iftm.deadlinetracker.util.toLocalDateTime
 import kotlinx.coroutines.flow.Flow
 
 class ObligationRepository(
-    private val database: AppDatabase
+    private val database: AppDatabase,
+    private val scheduler: ReminderScheduler
 ) {
 
     private val dao = database.obligationDao()
@@ -43,6 +45,21 @@ class ObligationRepository(
     suspend fun findWithReminders(id: Long): ObligationWithReminders? = dao.findWithReminders(id)
 
     /**
+     * Busca um lembrete, usado pelo worker na hora do disparo.
+     *
+     * @param id identificador do lembrete.
+     * @return o lembrete ou null se não existir.
+     */
+    suspend fun findReminder(id: Long): Reminder? = dao.findReminder(id)
+
+    /**
+     * Lista as obrigações pendentes que já passaram do vencimento.
+     *
+     * @return obrigações atrasadas ordenadas pelo vencimento.
+     */
+    suspend fun listOverdue(): List<Obligation> = dao.listOverdue(System.currentTimeMillis())
+
+    /**
      * Grava a obrigação e refaz os lembretes a partir das antecedências escolhidas.
      *
      * @param obligation obrigação nova, com id 0, ou editada.
@@ -63,7 +80,7 @@ class ObligationRepository(
     }
 
     /**
-     * Marca a obrigação como paga, recebida ou entregue e cancela os lembretes que ainda não dispararam.
+     * Marca a obrigação como paga, recebida ou entregue e cancela os alertas que ainda não dispararam.
      * Quando ela se repete todo mês, a próxima ocorrência é criada com as mesmas antecedências.
      *
      * @param id identificador da obrigação.
@@ -74,6 +91,7 @@ class ObligationRepository(
         if (obligation.isCompleted) {
             return
         }
+        scheduler.cancel(id)
         database.withTransaction {
             dao.update(
                 obligation.copy(
@@ -89,7 +107,7 @@ class ObligationRepository(
     }
 
     /**
-     * Volta a obrigação para pendente e recria os lembretes que ainda estão no futuro.
+     * Volta a obrigação para pendente e agenda de novo os lembretes que ainda estão no futuro.
      *
      * @param id identificador da obrigação.
      */
@@ -101,15 +119,25 @@ class ObligationRepository(
     }
 
     /**
-     * Remove a obrigação junto com os lembretes.
+     * Remove a obrigação, os lembretes e qualquer trabalho agendado no WorkManager.
      *
      * @param id identificador da obrigação.
      */
     suspend fun delete(id: Long) {
+        scheduler.cancel(id)
         database.withTransaction {
             dao.deleteReminders(id)
             dao.delete(id)
         }
+    }
+
+    /**
+     * Registra que o lembrete já apareceu para o usuário.
+     *
+     * @param reminderId identificador do lembrete.
+     */
+    suspend fun markFired(reminderId: Long) {
+        dao.updateReminderState(reminderId, ReminderState.FIRED)
     }
 
     /**
@@ -134,13 +162,14 @@ class ObligationRepository(
     }
 
     /**
-     * Apaga os lembretes antigos e cria um para cada antecedência. Ficam agendados
-     * só os que ainda estão no futuro e pertencem a uma obrigação pendente.
+     * Apaga os lembretes antigos e cria um para cada antecedência. Só vão para o WorkManager
+     * os que ainda estão no futuro e pertencem a uma obrigação pendente.
      *
      * @param obligation obrigação já gravada, com id definido.
      * @param offsets antecedências escolhidas.
      */
     private suspend fun rebuildReminders(obligation: Obligation, offsets: Set<ReminderOffset>) {
+        scheduler.cancel(obligation.id)
         val now = System.currentTimeMillis()
         val due = obligation.dueAt.toLocalDateTime()
         val reminders = offsets.map { offset ->
@@ -153,9 +182,12 @@ class ObligationRepository(
                 state = if (active) ReminderState.SCHEDULED else ReminderState.CANCELED
             )
         }
-        database.withTransaction {
+        val ids = database.withTransaction {
             dao.deleteReminders(obligation.id)
             dao.insertReminders(reminders)
         }
+        reminders.zip(ids)
+            .filter { (reminder, _) -> reminder.state == ReminderState.SCHEDULED }
+            .forEach { (reminder, id) -> scheduler.schedule(reminder.copy(id = id)) }
     }
 }

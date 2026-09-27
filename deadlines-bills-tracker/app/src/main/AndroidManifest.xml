@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:name=".DeadlineTrackerApp"
         android:allowBackup="true"
@@ -33,6 +35,10 @@
             android:exported="false"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize" />
+
+        <receiver
+            android:name=".scheduling.SettleReceiver"
+            android:exported="false" />
     </application>
 
 </manifest>

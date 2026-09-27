@@ -32,6 +32,8 @@
     <string name="section_completed">concluídos</string>
     <string name="empty_title">nenhum registro</string>
     <string name="empty_text">Toque em + para cadastrar uma fatura ou um prazo.</string>
+    <string name="notice_permission">Ative as notificações para receber os lembretes.</string>
+    <string name="action_enable">Ativar</string>
 
     <string name="type_payable">a pagar</string>
     <string name="type_receivable">a receber</string>
@@ -141,4 +143,20 @@
     <string name="error_description">Informe a descrição</string>
     <string name="error_payee">Informe o favorecido</string>
     <string name="error_payer">Informe o pagador</string>
+
+    <string name="channel_reminders">Lembretes de vencimento</string>
+    <string name="channel_reminders_description">Avisos antes do vencimento de faturas e prazos</string>
+    <string name="channel_overdue">Registros atrasados</string>
+    <string name="channel_overdue_description">Resumo diário do que passou do vencimento</string>
+    <string name="notification_due_today">%1$s vence hoje</string>
+    <string name="notification_due_tomorrow">%1$s vence amanhã</string>
+    <plurals name="notification_due_in">
+        <item quantity="one">%1$s vence em %2$d dia</item>
+        <item quantity="other">%1$s vence em %2$d dias</item>
+    </plurals>
+    <string name="notification_when">%1$s às %2$s</string>
+    <plurals name="notification_overdue_title">
+        <item quantity="one">%d registro atrasado</item>
+        <item quantity="other">%d registros atrasados</item>
+    </plurals>
 </resources>
