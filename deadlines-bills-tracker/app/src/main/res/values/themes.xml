@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="Base.Theme.DeadlinesBillsTracker" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <style name="Theme.DeadlinesBillsTracker" parent="Base.Theme.DeadlinesBillsTracker" />
+
+</resources>
