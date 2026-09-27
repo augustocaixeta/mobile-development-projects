@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.EmDia.Tab" parent="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:background">@drawable/tab_background</item>
+        <item name="android:textColor">@color/selection_text</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="Widget.EmDia.Segment" parent="Text.Label">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+        <item name="android:background">@drawable/segment_background</item>
+        <item name="android:textColor">@color/selection_text</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="Widget.EmDia.Field" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:background">@drawable/line_bottom</item>
+    </style>
+
+    <style name="Widget.EmDia.Field.Label" parent="Text.Caption">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_3</item>
+    </style>
+
+    <style name="Widget.EmDia.Field.Input" parent="Text.Body">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textColorHint">@color/text_3</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_accent</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+    <style name="Widget.EmDia.Section" parent="Text.Overline">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+
+    <style name="ThemeOverlay.EmDia.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurfaceContainerHigh">@color/surface</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Widget.EmDia.Dialog.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/Widget.EmDia.Dialog.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.EmDia.Dialog.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.EmDia.Dialog.Button</item>
+    </style>
+
+    <style name="Widget.EmDia.Dialog.Title" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:fontFamily">@font/schibsted_grotesk_semibold</item>
+        <item name="fontFamily">@font/schibsted_grotesk_semibold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="Widget.EmDia.Dialog.Body" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:fontFamily">@font/schibsted_grotesk_regular</item>
+        <item name="fontFamily">@font/schibsted_grotesk_regular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_2</item>
+    </style>
+
+    <style name="Widget.EmDia.Dialog.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textAppearance">@style/TextAppearance.EmDia.Button</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="rippleColor">@color/ripple_light</item>
+    </style>
+
+</resources>

@@ -1,7 +1,155 @@
 <resources>
 
-    <style name="Base.Theme.DeadlinesBillsTracker" parent="Theme.Material3.DayNight.NoActionBar" />
+    <style name="Base.Theme.EmDia" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/text</item>
+        <item name="colorOnPrimary">@color/on_fill</item>
+        <item name="colorPrimaryContainer">@color/surface_2</item>
+        <item name="colorOnPrimaryContainer">@color/text</item>
+        <item name="colorSecondary">@color/text_2</item>
+        <item name="colorOnSecondary">@color/on_fill</item>
+        <item name="colorTertiary">@color/positive</item>
+        <item name="colorError">@color/accent</item>
+        <item name="colorSurface">@color/bg</item>
+        <item name="colorOnSurface">@color/text</item>
+        <item name="colorOnSurfaceVariant">@color/text_2</item>
+        <item name="colorSurfaceContainerLowest">@color/bg</item>
+        <item name="colorSurfaceContainerLow">@color/surface</item>
+        <item name="colorSurfaceContainer">@color/surface</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_2</item>
+        <item name="colorSurfaceContainerHighest">@color/surface_2</item>
+        <item name="colorSurfaceInverse">@color/text</item>
+        <item name="colorOnSurfaceInverse">@color/on_fill</item>
+        <item name="colorPrimaryInverse">@color/accent</item>
+        <item name="colorOutline">@color/line</item>
+        <item name="colorOutlineVariant">@color/line</item>
+        <item name="colorControlActivated">@color/text</item>
+        <item name="colorControlHighlight">@color/ripple_light</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text_2</item>
+        <item name="android:textColorHint">@color/text_3</item>
+        <item name="android:fontFamily">@font/schibsted_grotesk_regular</item>
+        <item name="fontFamily">@font/schibsted_grotesk_regular</item>
+        <item name="android:datePickerDialogTheme">@style/Theme.EmDia.Picker</item>
+        <item name="android:timePickerDialogTheme">@style/Theme.EmDia.Picker</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.EmDia.Dialog</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.EmDia.Menu</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.EmDia.Menu</item>
+        <item name="materialButtonStyle">@style/Widget.EmDia.Button.Primary</item>
+        <item name="snackbarStyle">@style/Widget.EmDia.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.EmDia.Snackbar.Text</item>
+        <item name="snackbarButtonStyle">@style/Widget.EmDia.Snackbar.Button</item>
+    </style>
 
-    <style name="Theme.DeadlinesBillsTracker" parent="Base.Theme.DeadlinesBillsTracker" />
+    <style name="Theme.EmDia" parent="Base.Theme.EmDia" />
+
+    <style name="Theme.EmDia.Picker" parent="android:Theme.Material.Dialog">
+        <item name="android:colorAccent">@color/text</item>
+        <item name="android:colorPrimary">@color/surface_2</item>
+        <item name="android:colorControlActivated">@color/text</item>
+        <item name="android:colorBackground">@color/surface</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text_2</item>
+        <item name="android:textColorPrimaryInverse">@color/on_fill</item>
+        <item name="android:timePickerStyle">@style/Widget.EmDia.Clock</item>
+    </style>
+
+    <style name="Widget.EmDia.Clock" parent="android:Widget.Material.TimePicker">
+        <item name="android:numbersBackgroundColor">@color/surface_2</item>
+        <item name="android:numbersSelectorColor">@color/text</item>
+        <item name="android:numbersTextColor">@color/clock_numbers</item>
+    </style>
+
+    <style name="Widget.EmDia.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:minHeight">52dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.EmDia.Button</item>
+        <item name="android:textColor">@color/on_fill</item>
+        <item name="backgroundTint">@color/text</item>
+        <item name="rippleColor">@color/ripple_dark</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.EmDia.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">52dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.EmDia.Button</item>
+        <item name="android:textColor">@color/text_2</item>
+        <item name="rippleColor">@color/ripple_light</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="Widget.EmDia.Pill" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textAppearance">@style/TextAppearance.EmDia.Label</item>
+        <item name="android:textColor">@color/pill_text</item>
+        <item name="chipBackgroundColor">@color/pill_background</item>
+        <item name="chipStrokeColor">@color/pill_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="chipStartPadding">0dp</item>
+        <item name="chipEndPadding">0dp</item>
+        <item name="textStartPadding">14dp</item>
+        <item name="textEndPadding">14dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+        <item name="rippleColor">@color/ripple_light</item>
+        <item name="shapeAppearanceOverlay">@style/Shape.Pill</item>
+    </style>
+
+    <style name="Shape.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Shape.Fab" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">18dp</item>
+    </style>
+
+    <style name="Widget.EmDia.Fab" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/text</item>
+        <item name="tint">@color/on_fill</item>
+        <item name="rippleColor">@color/ripple_dark</item>
+        <item name="fabCustomSize">56dp</item>
+        <item name="maxImageSize">28dp</item>
+        <item name="elevation">0dp</item>
+        <item name="hoveredFocusedTranslationZ">0dp</item>
+        <item name="pressedTranslationZ">0dp</item>
+        <item name="shapeAppearanceOverlay">@style/Shape.Fab</item>
+    </style>
+
+    <style name="Widget.EmDia.IconButton" parent="">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="tint">@color/text</item>
+    </style>
+
+    <style name="Widget.EmDia.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="backgroundTint">@color/surface_2</item>
+        <item name="shapeAppearance">@style/Shape.Fab</item>
+    </style>
+
+    <style name="Widget.EmDia.Snackbar.Text" parent="Widget.Material3.Snackbar.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.EmDia.Snackbar</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="Widget.EmDia.Snackbar.Button" parent="Widget.Material3.Button.TextButton.Snackbar">
+        <item name="android:textAppearance">@style/TextAppearance.EmDia.Button</item>
+        <item name="android:textColor">@color/positive</item>
+    </style>
 
 </resources>
