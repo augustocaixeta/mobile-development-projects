@@ -11,6 +11,7 @@ import br.edu.iftm.deadlinetracker.databinding.ActivityMainBinding
 import br.edu.iftm.deadlinetracker.ui.components.applySystemBarsPadding
 import br.edu.iftm.deadlinetracker.ui.components.enableFullScreen
 import br.edu.iftm.deadlinetracker.ui.components.setTabSelected
+import br.edu.iftm.deadlinetracker.ui.form.FormActivity
 import br.edu.iftm.deadlinetracker.ui.home.Filter
 import br.edu.iftm.deadlinetracker.ui.home.HomeUiState
 import br.edu.iftm.deadlinetracker.ui.home.HomeViewModel
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private val adapter = ObligationAdapter { }
 
     /**
-     * Monta a tela inicial e liga as abas de filtro.
+     * Monta a tela inicial e liga as abas de filtro e o botão de novo registro.
      *
      * @param savedInstanceState estado salvo pelo sistema, null na primeira abertura.
      */
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         binding.root.applySystemBarsPadding()
 
         binding.list.adapter = adapter
+        binding.addButton.setOnClickListener {
+            startActivity(FormActivity.intent(this))
+        }
         tabs().forEach { (filter, tab) ->
             tab.setOnClickListener { viewModel.selectFilter(filter) }
         }

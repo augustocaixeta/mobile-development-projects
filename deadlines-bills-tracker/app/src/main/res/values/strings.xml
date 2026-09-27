@@ -2,8 +2,11 @@
     <string name="app_name">Em Dia</string>
 
     <string name="pair_format">%1$s · %2$s</string>
+    <string name="cd_close">Fechar</string>
     <string name="cd_add">Novo registro</string>
     <string name="cd_notifications">Notificações</string>
+    <string name="state_on">Ligado</string>
+    <string name="state_off">Desligado</string>
 
     <string name="home_summary_label">A pagar em %1$s</string>
     <plurals name="home_completed_count">
@@ -58,8 +61,34 @@
     <string name="action_receive">Marcar como recebida</string>
     <string name="action_deliver">Marcar como entregue</string>
 
+    <string name="form_new">Novo registro</string>
+    <string name="form_edit">Editar registro</string>
+    <string name="segment_payable">A pagar</string>
+    <string name="segment_receivable">A receber</string>
+    <string name="segment_deadline">Prazo</string>
+    <string name="field_amount">Valor (R$)</string>
+    <string name="field_amount_hint">0,00</string>
+    <string name="field_description">Descrição</string>
+    <string name="hint_description_bill">Conta de energia</string>
+    <string name="hint_description_deadline">Entrega da etapa 2</string>
+    <string name="field_payee">Favorecido</string>
+    <string name="field_payer">Pagador</string>
+    <string name="field_reference">Disciplina ou projeto (opcional)</string>
+    <string name="hint_payee">Quem vai receber</string>
+    <string name="hint_payer">Quem vai pagar</string>
+    <string name="hint_reference">Programação para dispositivos móveis</string>
+    <string name="field_due">Vencimento</string>
+    <string name="field_delivery">Entrega</string>
+    <string name="field_time">Horário</string>
+    <string name="field_remind">Lembrar</string>
     <string name="remind_on_due_date">No dia</string>
     <string name="remind_one_day">1 dia antes</string>
     <string name="remind_three_days">3 dias antes</string>
     <string name="remind_one_week">1 semana antes</string>
+    <string name="repeat_monthly_switch">Repetir todo mês</string>
+    <string name="action_save">Salvar</string>
+    <string name="error_amount">Informe um valor maior que zero</string>
+    <string name="error_description">Informe a descrição</string>
+    <string name="error_payee">Informe o favorecido</string>
+    <string name="error_payer">Informe o pagador</string>
 </resources>

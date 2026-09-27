@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.form.FormActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp">
+
+        <ImageButton
+            android:id="@+id/close_button"
+            style="@style/Widget.EmDia.IconButton"
+            android:contentDescription="@string/cd_close"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/screen_title"
+            style="@style/Text.Body.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:accessibilityHeading="true"
+            tools:text="@string/form_new" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/segmented_background"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/segment_payable"
+                    style="@style/Widget.EmDia.Segment"
+                    android:text="@string/segment_payable" />
+
+                <TextView
+                    android:id="@+id/segment_receivable"
+                    style="@style/Widget.EmDia.Segment"
+                    android:layout_marginStart="3dp"
+                    android:text="@string/segment_receivable" />
+
+                <TextView
+                    android:id="@+id/segment_deadline"
+                    style="@style/Widget.EmDia.Segment"
+                    android:layout_marginStart="3dp"
+                    android:text="@string/segment_deadline" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/amount_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="28dp">
+
+                <TextView
+                    android:id="@+id/amount_label"
+                    style="@style/Widget.EmDia.Field.Label"
+                    android:text="@string/field_amount" />
+
+                <EditText
+                    android:id="@+id/amount_input"
+                    style="@style/Text.Display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@null"
+                    android:digits="0123456789.,"
+                    android:hint="@string/field_amount_hint"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:textColorHint="@color/text_3"
+                    android:textCursorDrawable="@drawable/cursor_accent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/title_field"
+                style="@style/Widget.EmDia.Field"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/title_label"
+                    style="@style/Widget.EmDia.Field.Label"
+                    android:text="@string/field_description" />
+
+                <EditText
+                    android:id="@+id/title_input"
+                    style="@style/Widget.EmDia.Field.Input"
+                    android:hint="@string/hint_description_bill"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/payee_field"
+                style="@style/Widget.EmDia.Field"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:id="@+id/payee_label"
+                    style="@style/Widget.EmDia.Field.Label"
+                    android:text="@string/field_payee" />
+
+                <EditText
+                    android:id="@+id/payee_input"
+                    style="@style/Widget.EmDia.Field.Input"
+                    android:hint="@string/hint_payee"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapWords" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/date_field"
+                    style="@style/Widget.EmDia.Field"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/date_label"
+                        style="@style/Widget.EmDia.Field.Label"
+                        android:text="@string/field_due" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/date_text"
+                            style="@style/Text.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            tools:text="30 set 2026" />
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="8dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_calendar_month"
+                            app:tint="@color/text_3" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/time_field"
+                    style="@style/Widget.EmDia.Field"
+                    android:layout_width="112dp"
+                    android:layout_marginStart="16dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        style="@style/Widget.EmDia.Field.Label"
+                        android:text="@string/field_time" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/time_text"
+                            style="@style/Text.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            tools:text="09:30" />
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="8dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_schedule"
+                            app:tint="@color/text_3" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/Widget.EmDia.Field.Label"
+                android:paddingTop="20dp"
+                android:text="@string/field_remind" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/reminder_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                app:chipSpacingHorizontal="8dp"
+                app:chipSpacingVertical="8dp"
+                app:singleSelection="false">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/pill_on_due_date"
+                    style="@style/Widget.EmDia.Pill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remind_on_due_date" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/pill_one_day"
+                    style="@style/Widget.EmDia.Pill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remind_one_day" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/pill_three_days"
+                    style="@style/Widget.EmDia.Pill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remind_three_days" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/pill_one_week"
+                    style="@style/Widget.EmDia.Pill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remind_one_week" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <LinearLayout
+                android:id="@+id/repeat_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/line_top_bottom"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp">
+
+                <TextView
+                    style="@style/Text.Body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/repeat_monthly_switch" />
+
+                <br.edu.iftm.deadlinetracker.ui.components.ToggleSwitch
+                    android:id="@+id/repeat_switch"
+                    android:layout_width="48dp"
+                    android:layout_height="28dp"
+                    android:contentDescription="@string/repeat_monthly_switch" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_button"
+            style="@style/Widget.EmDia.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_save" />
+    </LinearLayout>
+</LinearLayout>
