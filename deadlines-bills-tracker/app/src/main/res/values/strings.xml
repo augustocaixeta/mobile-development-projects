@@ -7,6 +7,7 @@
     <string name="cd_close">Fechar</string>
     <string name="cd_add">Novo registro</string>
     <string name="cd_notifications">Notificações</string>
+    <string name="cd_chart">Valores pagos por período</string>
     <string name="cancel">Cancelar</string>
     <string name="state_on">Ligado</string>
     <string name="state_off">Desligado</string>
@@ -143,6 +144,20 @@
     <string name="error_description">Informe a descrição</string>
     <string name="error_payee">Informe o favorecido</string>
     <string name="error_payer">Informe o pagador</string>
+
+    <string name="summary_title">Resumo</string>
+    <string name="period_week">Semana</string>
+    <string name="period_month">Mês</string>
+    <string name="period_year">Ano</string>
+    <string name="summary_paid_week">Pago nesta semana</string>
+    <string name="summary_paid_month">Pago neste mês</string>
+    <string name="summary_paid_year">Pago neste ano</string>
+    <string name="summary_received">%1$s recebidos no período</string>
+    <string name="stat_completed">Concluídos</string>
+    <string name="stat_pending">Pendentes</string>
+    <string name="stat_overdue">Atrasados</string>
+    <string name="summary_recent">concluídos recentemente</string>
+    <string name="summary_no_recent">Nada concluído ainda</string>
 
     <string name="channel_reminders">Lembretes de vencimento</string>
     <string name="channel_reminders_description">Avisos antes do vencimento de faturas e prazos</string>

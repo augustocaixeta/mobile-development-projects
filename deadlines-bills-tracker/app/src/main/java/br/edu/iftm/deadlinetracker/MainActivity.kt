@@ -26,6 +26,7 @@ import br.edu.iftm.deadlinetracker.ui.home.Filter
 import br.edu.iftm.deadlinetracker.ui.home.HomeUiState
 import br.edu.iftm.deadlinetracker.ui.home.HomeViewModel
 import br.edu.iftm.deadlinetracker.ui.home.ObligationAdapter
+import br.edu.iftm.deadlinetracker.ui.summary.SummaryActivity
 import br.edu.iftm.deadlinetracker.util.Formats
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
@@ -64,6 +65,9 @@ class MainActivity : AppCompatActivity() {
         binding.list.adapter = adapter
         binding.addButton.setOnClickListener {
             startActivity(FormActivity.intent(this))
+        }
+        binding.summaryBlock.setOnClickListener {
+            startActivity(Intent(this, SummaryActivity::class.java))
         }
         binding.notificationsButton.setOnClickListener { onBellClick() }
         tabs().forEach { (filter, tab) ->

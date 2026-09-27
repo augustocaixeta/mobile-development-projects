@@ -36,6 +36,11 @@
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".ui.summary.SummaryActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
         <receiver
             android:name=".scheduling.SettleReceiver"
             android:exported="false" />
