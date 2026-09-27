@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnNavTreinos"
+        style="@style/FilterTabText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nav_treinos" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnNavExercicios"
+        style="@style/FilterTabText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nav_exercicios" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnNavCorrida"
+        style="@style/FilterTabText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nav_corrida" />
+
+</LinearLayout>
