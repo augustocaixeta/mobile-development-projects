@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.WorkoutPerformanceTracker" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorSecondary">@color/positive</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/bg</item>
+        <item name="android:navigationBarColor" tools:targetApi="21">@color/bg</item>
+    </style>
+
+    <style name="Theme.WorkoutPerformanceTracker" parent="Base.Theme.WorkoutPerformanceTracker" />
+</resources>

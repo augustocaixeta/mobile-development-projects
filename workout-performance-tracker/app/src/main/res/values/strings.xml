@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meus Treinos</string>
+
+    <string name="nav_treinos">Treinos</string>
+    <string name="nav_exercicios">Exercícios</string>
+    <string name="nav_corrida">Corrida</string>
+
+    <string name="title_novo_treino">Novo treino</string>
+    <string name="title_novo_exercicio">Novo exercício</string>
+    <string name="title_editar_treino">Editar treino</string>
+    <string name="title_editar_exercicio">Editar exercício</string>
+
+    <string name="action_save">Salvar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_register">Registrar</string>
+    <string name="action_editar_treino">Editar treino</string>
+    <string name="action_excluir">Excluir</string>
+    <string name="action_excluir_treino">Excluir treino</string>
+    <string name="action_excluir_exercicio">Excluir exercício</string>
+    <string name="action_concluir_treino">Concluir treino</string>
+    <string name="action_salvar_alteracoes">Salvar alterações</string>
+    <string name="action_editar_exercicio">Editar exercício</string>
+
+    <string name="hint_nome_treino">Nome do treino</string>
+    <string name="hint_grupo_muscular">Grupo muscular</string>
+    <string name="hint_nome_exercicio">Nome do exercício</string>
+    <string name="hint_busca_exercicio">Buscar exercício</string>
+    <string name="hint_distancia_km">Distância, km</string>
+    <string name="hint_tempo_min">Minutos</string>
+    <string name="hint_tempo_seg">Segundos</string>
+
+    <string name="label_volume_treino">Volume do treino</string>
+    <string name="label_historico">Histórico de cargas</string>
+    <string name="label_exercicios">Exercícios</string>
+    <string name="label_distancia">Distância</string>
+    <string name="label_tempo">Tempo</string>
+    <string name="label_ritmo_medio">Ritmo médio</string>
+    <string name="label_resumo_rotina_format">%1$s · %2$s</string>
+    <string name="label_kg_format">%1$s kg</string>
+    <string name="label_nova_corrida">Nova corrida</string>
+    <string name="label_treino_grupo_format">Treino · %1$s</string>
+    <string name="label_selecione_exercicios">Marque os exercícios que você fez e informe a carga, as séries e as repetições de cada um.</string>
+    <string name="label_campo_carga">Carga, kg</string>
+    <string name="label_campo_series">Séries</string>
+    <string name="label_campo_repeticoes">Repetições</string>
+    <string name="label_carga_series_format">%1$s kg · %2$dx%3$d</string>
+    <string name="label_ultima_carga">Última carga</string>
+    <string name="label_maior_carga">Maior carga</string>
+    <string name="label_evolucao">Evolução</string>
+    <string name="label_grafico_carga">Carga por treino</string>
+    <string name="label_resumo_exercicio_format">%1$s · %2$s · última carga %3$s kg</string>
+    <string name="label_resumo_exercicio_vazio_format">%1$s · nenhum treino ainda</string>
+    <string name="label_historico_corridas">Histórico de corridas</string>
+
+    <string name="empty_treinos">Nenhum treino registrado ainda. Toque no botão abaixo para registrar o primeiro.</string>
+    <string name="empty_exercicios_treino">Nenhum exercício nesse treino.</string>
+    <string name="empty_catalogo_selecao">Nenhum exercício cadastrado. Cadastre exercícios na aba Exercícios.</string>
+    <string name="empty_corridas">Nenhuma corrida registrada ainda.</string>
+    <string name="empty_busca_exercicios">Nenhum exercício encontrado.</string>
+    <string name="empty_evolucao">Esse exercício ainda não apareceu em nenhum treino. Registre um treino na aba Treinos para acompanhar a evolução.</string>
+
+    <string name="error_campo_obrigatorio">Preencha esse campo</string>
+    <string name="error_valor_invalido">Valor inválido</string>
+    <string name="error_sem_exercicios">Selecione pelo menos um exercício.</string>
+    <string name="error_valores_exercicio_format">Preencha carga, séries e repetições de %1$s.</string>
+
+    <string name="dialog_excluir_treino_titulo">Excluir treino?</string>
+    <string name="dialog_excluir_treino_mensagem">O registro desse treino será apagado, junto com as cargas lançadas nele.</string>
+    <string name="dialog_excluir_exercicio_titulo">Excluir exercício?</string>
+    <string name="dialog_excluir_exercicio_mensagem">O exercício será removido, junto com as cargas registradas dele em todos os treinos.</string>
+
+    <string name="cd_adicionar">Adicionar</string>
+    <string name="cd_voltar">Voltar</string>
+    <string name="cd_grafico_carga_format">Gráfico de carga por treino com %1$d registros. Última carga %2$s kg.</string>
+
+    <plurals name="quantidade_exercicios">
+        <item quantity="one">%d exercício</item>
+        <item quantity="other">%d exercícios</item>
+    </plurals>
+    <plurals name="quantidade_treinos">
+        <item quantity="one">%d treino</item>
+        <item quantity="other">%d treinos</item>
+    </plurals>
+</resources>
