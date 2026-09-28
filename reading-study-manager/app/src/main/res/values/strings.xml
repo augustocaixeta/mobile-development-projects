@@ -5,6 +5,60 @@
     <string name="cd_close">Fechar</string>
     <string name="cd_add">Novo registro</string>
     <string name="under_construction">Esta tela ainda está em construção.</string>
+    <string name="pair_format">%1$s · %2$s</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="progress_format">%1$s/%2$s</string>
+    <plurals name="pages_count">
+        <item quantity="one">%1$s pág</item>
+        <item quantity="other">%1$s págs</item>
+    </plurals>
+    <string name="no_deadline">sem prazo</string>
+    <string name="relative_today">hoje</string>
+    <string name="relative_tomorrow">amanhã</string>
+    <string name="relative_yesterday">ontem</string>
+    <plurals name="relative_in_days">
+        <item quantity="one">em %d dia</item>
+        <item quantity="other">em %d dias</item>
+    </plurals>
+    <plurals name="relative_days_ago">
+        <item quantity="one">há %d dia</item>
+        <item quantity="other">há %d dias</item>
+    </plurals>
+
+    <string name="genre_all">Todos os gêneros</string>
+    <string name="genre_fiction">Ficção</string>
+    <string name="genre_non_fiction">Não-ficção</string>
+    <string name="genre_fantasy">Fantasia</string>
+    <string name="genre_biography">Biografia</string>
+    <string name="genre_self_help">Autoajuda</string>
+    <string name="genre_study">Estudo</string>
+
+    <string name="status_want_to_read">Quero ler</string>
+    <string name="status_reading">Lendo</string>
+    <string name="status_read">Lido</string>
+
+    <string name="summary_read_in">Lido em %1$s</string>
+    <plurals name="summary_books_count">
+        <item quantity="one">+%d livro</item>
+        <item quantity="other">+%d livros</item>
+    </plurals>
+    <plurals name="summary_books_suffix">
+        <item quantity="one">concluído este mês</item>
+        <item quantity="other">concluídos este mês</item>
+    </plurals>
+    <string name="summary_goal">%1$d%% DA META</string>
+    <string name="summary_no_goal">SEM META</string>
+    <string name="tab_all">Todos</string>
+    <string name="tab_reading">Lendo</string>
+    <string name="tab_read">Lidos</string>
+    <string name="tab_want_to_read">Quero ler</string>
+    <string name="section_reading">lendo</string>
+    <string name="section_want_to_read">quero ler</string>
+    <string name="section_read">lidos</string>
+    <string name="empty_title">Nenhum livro ainda</string>
+    <string name="empty_hint">Toque em + para cadastrar o primeiro.</string>
+    <string name="empty_filtered_title">Nenhum livro encontrado</string>
+    <string name="empty_filtered_hint">Tente outra aba ou outro gênero.</string>
 
     <string name="form_new">Novo registro</string>
 
