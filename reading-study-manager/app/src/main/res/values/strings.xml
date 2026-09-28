@@ -5,7 +5,6 @@
     <string name="cd_close">Fechar</string>
     <string name="cd_more_options">Mais opções</string>
     <string name="cd_add">Novo registro</string>
-    <string name="under_construction">Esta tela ainda está em construção.</string>
     <string name="pair_format">%1$s · %2$s</string>
     <string name="percent_format">%1$d%%</string>
     <string name="progress_format">%1$s/%2$s</string>
