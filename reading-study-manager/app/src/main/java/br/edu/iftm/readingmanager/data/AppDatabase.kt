@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Book::class], version = 1, exportSchema = false)
+@Database(entities = [Book::class, Note::class, Session::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     /**
@@ -14,6 +14,20 @@ abstract class AppDatabase : RoomDatabase() {
      * @return DAO gerado pelo Room.
      */
     abstract fun bookDao(): BookDao
+
+    /**
+     * Acesso às notas do diário de leitura.
+     *
+     * @return DAO gerado pelo Room.
+     */
+    abstract fun noteDao(): NoteDao
+
+    /**
+     * Acesso às sessões de leitura e ao progresso dos livros.
+     *
+     * @return DAO gerado pelo Room.
+     */
+    abstract fun sessionDao(): SessionDao
 
     companion object {
 
@@ -32,7 +46,10 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "reading_manager.db"
-                ).build().also { instance = it }
+                )
+                    .fallbackToDestructiveMigration(true)
+                    .build()
+                    .also { instance = it }
             }
         }
     }
