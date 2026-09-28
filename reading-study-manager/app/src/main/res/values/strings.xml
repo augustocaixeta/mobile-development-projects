@@ -3,6 +3,7 @@
 
     <string name="cd_back">Voltar</string>
     <string name="cd_close">Fechar</string>
+    <string name="cd_more_options">Mais opções</string>
     <string name="cd_add">Novo registro</string>
     <string name="under_construction">Esta tela ainda está em construção.</string>
     <string name="pair_format">%1$s · %2$s</string>
@@ -65,6 +66,34 @@
     <string name="detail_title">Detalhe do livro</string>
     <string name="action_continue_reading">Continuar leitura</string>
     <string name="action_edit_book">Editar livro</string>
+    <string name="action_start_reading">Começar leitura</string>
+    <string name="action_update_page">Atualizar página</string>
+    <string name="action_delete_book">Excluir livro</string>
+    <string name="action_save">Salvar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_delete">Excluir</string>
+    <string name="detail_progress_label">Progresso de leitura</string>
+    <plurals name="detail_pages_left">
+        <item quantity="one">falta %1$s pág</item>
+        <item quantity="other">faltam %1$s págs</item>
+    </plurals>
+    <string name="detail_deadline_relative">prazo %1$s</string>
+    <string name="detail_finished_on">concluído em %1$s</string>
+    <string name="detail_author">Autor</string>
+    <string name="detail_category">Categoria</string>
+    <string name="detail_started">Iniciado em</string>
+    <string name="detail_deadline">Prazo</string>
+    <string name="detail_finished">Concluído em</string>
+    <string name="detail_not_started">não iniciado</string>
+    <string name="page_dialog_label">Página atual</string>
+    <plurals name="page_dialog_total">
+        <item quantity="one">O livro tem %1$s pág.</item>
+        <item quantity="other">O livro tem %1$s págs.</item>
+    </plurals>
+    <string name="error_page_required">Informe a página</string>
+    <string name="error_page_above_total">A página vai até %1$s</string>
+    <string name="delete_book_title">Excluir livro?</string>
+    <string name="delete_book_message">As notas e as sessões de leitura deste livro também serão apagadas.</string>
 
     <string name="session_title">Sessão de leitura</string>
 
