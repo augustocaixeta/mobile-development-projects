@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Ler+</string>
+
+    <string name="cd_back">Voltar</string>
+    <string name="cd_close">Fechar</string>
+    <string name="cd_add">Novo registro</string>
+    <string name="under_construction">Esta tela ainda está em construção.</string>
+
+    <string name="form_new">Novo registro</string>
+
+    <string name="detail_title">Detalhe do livro</string>
+    <string name="action_continue_reading">Continuar leitura</string>
+    <string name="action_edit_book">Editar livro</string>
+
+    <string name="session_title">Sessão de leitura</string>
+
+    <string name="performance_title">Desempenho</string>
 </resources>

@@ -6,10 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.ui.Modifier
+import br.edu.iftm.readingmanager.ui.navigation.ReadingNavHost
 import br.edu.iftm.readingmanager.ui.theme.ReadingTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,11 +24,7 @@ class MainActivity : ComponentActivity() {
         )
         setContent {
             ReadingTheme {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(ReadingTheme.colors.bg)
-                )
+                ReadingNavHost()
             }
         }
     }
