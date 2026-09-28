@@ -62,6 +62,30 @@
     <string name="empty_filtered_hint">Tente outra aba ou outro gênero.</string>
 
     <string name="form_new">Novo registro</string>
+    <string name="session_form_pages">Páginas lidas</string>
+    <plurals name="session_form_pages_left">
+        <item quantity="one">Falta %1$s pág neste livro</item>
+        <item quantity="other">Faltam %1$s págs neste livro</item>
+    </plurals>
+    <string name="session_form_book">Livro</string>
+    <string name="session_form_book_placeholder">Escolha um livro</string>
+    <string name="session_form_book_dialog">Qual livro você leu?</string>
+    <string name="session_form_no_books">Nenhum livro para ler. Cadastre um no segmento Livro.</string>
+    <string name="session_form_date">Data</string>
+    <string name="session_form_start">Início</string>
+    <string name="session_form_duration">Duração</string>
+    <string name="session_duration_minutes">%1$d min</string>
+    <plurals name="session_duration_hours">
+        <item quantity="one">%1$d hora</item>
+        <item quantity="other">%1$d horas</item>
+    </plurals>
+    <string name="error_session_book">Escolha um livro</string>
+    <string name="error_session_pages">Informe as páginas lidas</string>
+    <plurals name="error_session_pages_left">
+        <item quantity="one">Resta só %1$s pág neste livro</item>
+        <item quantity="other">Restam só %1$s págs neste livro</item>
+    </plurals>
+    <string name="error_session_future">A sessão não pode estar no futuro</string>
 
     <string name="detail_title">Detalhe do livro</string>
     <string name="action_continue_reading">Continuar leitura</string>
