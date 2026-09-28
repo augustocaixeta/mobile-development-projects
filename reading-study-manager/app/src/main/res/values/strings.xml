@@ -113,7 +113,33 @@
     <string name="note_type_quote_long">Citação favorita</string>
     <string name="note_page_format">pág %1$s</string>
 
-    <string name="session_title">Sessão de leitura</string>
+    <string name="session_page_of">Página %1$s de %2$s</string>
+    <string name="session_marks_title">Metas desta sessão</string>
+    <string name="session_mark_page">Página %1$s</string>
+    <string name="action_add_mark">+ Adicionar marcação</string>
+    <string name="cd_mark_done">Página alcançada</string>
+    <string name="cd_mark_pending">Página ainda não alcançada</string>
+    <string name="session_up_next">a seguir</string>
+    <string name="session_next_mark">Próxima marcação: página %1$s</string>
+    <string name="session_book_end">Fim do livro</string>
+    <plurals name="session_pages_short">
+        <item quantity="one">%1$s pág</item>
+        <item quantity="other">%1$s págs</item>
+    </plurals>
+    <string name="action_finish_session">Finalizar sessão</string>
+    <string name="action_pause_session">Pausar sessão</string>
+    <string name="action_resume_session">Retomar sessão</string>
+    <string name="action_keep_reading">Continuar lendo</string>
+    <string name="action_discard">Descartar</string>
+    <string name="finish_dialog_message">Você leu por %1$s. Em que página parou?</string>
+    <string name="finish_dialog_label">Página final</string>
+    <string name="error_page_below_start">A sessão começou na página %1$s</string>
+    <string name="mark_dialog_title">Nova marcação</string>
+    <string name="mark_dialog_label">Página</string>
+    <string name="error_mark_below_reached">Escolha uma página depois da %1$s</string>
+    <string name="error_mark_duplicate">Essa página já está marcada</string>
+    <string name="discard_dialog_title">Sair sem salvar?</string>
+    <string name="discard_dialog_message">O tempo e as marcações desta sessão não serão salvos.</string>
 
     <string name="performance_title">Desempenho</string>
 </resources>
