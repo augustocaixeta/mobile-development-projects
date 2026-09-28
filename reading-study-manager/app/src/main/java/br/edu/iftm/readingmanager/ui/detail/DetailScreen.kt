@@ -35,6 +35,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import br.edu.iftm.readingmanager.R
 import br.edu.iftm.readingmanager.data.Book
 import br.edu.iftm.readingmanager.data.BookStatus
+import br.edu.iftm.readingmanager.data.Note
+import br.edu.iftm.readingmanager.data.NoteType
 import br.edu.iftm.readingmanager.data.isRead
 import br.edu.iftm.readingmanager.data.pagesLeft
 import br.edu.iftm.readingmanager.data.progressPercent
@@ -88,7 +90,9 @@ fun DetailScreen(
         onContinue = onContinue,
         onUpdatePage = viewModel::updatePage,
         onChangeStatus = viewModel::changeStatus,
-        onDeleteBook = viewModel::deleteBook
+        onDeleteBook = viewModel::deleteBook,
+        onSaveNote = viewModel::saveNote,
+        onDeleteNote = viewModel::deleteNote
     )
 }
 
@@ -102,6 +106,8 @@ fun DetailScreen(
  * @param onUpdatePage grava a nova página atual.
  * @param onChangeStatus grava a nova situação do livro.
  * @param onDeleteBook exclui o livro.
+ * @param onSaveNote grava a nota editada ou nova.
+ * @param onDeleteNote exclui uma nota.
  */
 @Composable
 private fun DetailContent(
@@ -111,9 +117,13 @@ private fun DetailContent(
     onContinue: () -> Unit,
     onUpdatePage: (Int) -> Unit,
     onChangeStatus: (BookStatus) -> Unit,
-    onDeleteBook: () -> Unit
+    onDeleteBook: () -> Unit,
+    onSaveNote: (Note?, NoteType, String) -> Unit,
+    onDeleteNote: (Note) -> Unit
 ) {
     val book = state.book
+    var editingNoteId by rememberSaveable { mutableStateOf<Long?>(null) }
+    var creatingNote by rememberSaveable { mutableStateOf(false) }
     var showPageDialog by rememberSaveable { mutableStateOf(false) }
     var showDeleteDialog by rememberSaveable { mutableStateOf(false) }
     Column(
@@ -147,6 +157,11 @@ private fun DetailContent(
                 ProgressBlock(book = book, today = state.today, onClick = { showPageDialog = true })
                 StatusPills(selected = book.status, onSelect = onChangeStatus)
                 BookInfo(book = book)
+                NotesSection(
+                    notes = state.notes,
+                    onAdd = { creatingNote = true },
+                    onOpen = { note -> editingNoteId = note.id }
+                )
             }
         }
         BottomActions {
@@ -172,6 +187,27 @@ private fun DetailContent(
             onConfirm = { page ->
                 showPageDialog = false
                 onUpdatePage(page)
+            }
+        )
+    }
+    val editingNote = state.notes.firstOrNull { it.id == editingNoteId }
+    if (creatingNote || editingNote != null) {
+        val close = {
+            creatingNote = false
+            editingNoteId = null
+        }
+        NoteDialog(
+            note = editingNote,
+            onDismiss = close,
+            onSave = { type, text ->
+                onSaveNote(editingNote, type, text)
+                close()
+            },
+            onDelete = {
+                if (editingNote != null) {
+                    onDeleteNote(editingNote)
+                }
+                close()
             }
         )
     }

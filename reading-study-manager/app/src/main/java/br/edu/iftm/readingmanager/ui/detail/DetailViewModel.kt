@@ -12,6 +12,9 @@ import br.edu.iftm.readingmanager.ReadingApp
 import br.edu.iftm.readingmanager.data.Book
 import br.edu.iftm.readingmanager.data.BookRepository
 import br.edu.iftm.readingmanager.data.BookStatus
+import br.edu.iftm.readingmanager.data.Note
+import br.edu.iftm.readingmanager.data.NoteRepository
+import br.edu.iftm.readingmanager.data.NoteType
 import br.edu.iftm.readingmanager.data.SessionRepository
 import br.edu.iftm.readingmanager.data.progressSession
 import br.edu.iftm.readingmanager.data.withCurrentPage
@@ -27,6 +30,7 @@ import kotlinx.coroutines.launch
 
 data class DetailUiState(
     val book: Book? = null,
+    val notes: List<Note> = emptyList(),
     val today: LocalDate = LocalDate.now(),
     val loaded: Boolean = false,
     val deleted: Boolean = false
@@ -35,6 +39,7 @@ data class DetailUiState(
 class DetailViewModel(
     savedStateHandle: SavedStateHandle,
     private val books: BookRepository,
+    private val notes: NoteRepository,
     private val sessions: SessionRepository
 ) : ViewModel() {
 
@@ -43,8 +48,8 @@ class DetailViewModel(
     private val today = MutableStateFlow(LocalDate.now())
 
     val state: StateFlow<DetailUiState> =
-        combine(books.observe(bookId), today, deleted) { book, date, gone ->
-            DetailUiState(book = book, today = date, loaded = true, deleted = gone)
+        combine(books.observe(bookId), notes.observeByBook(bookId), today, deleted) { book, list, date, gone ->
+            DetailUiState(book = book, notes = list, today = date, loaded = true, deleted = gone)
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), DetailUiState())
 
     /**
@@ -81,6 +86,35 @@ class DetailViewModel(
     }
 
     /**
+     * Grava uma nota do diário. Uma nota nova guarda a página em que o livro estava.
+     *
+     * @param existing nota em edição, ou null para criar uma nova.
+     * @param type tipo escolhido: anotação, insight ou citação favorita.
+     * @param text texto já validado, sem espaços nas pontas.
+     */
+    fun saveNote(existing: Note?, type: NoteType, text: String) {
+        viewModelScope.launch {
+            if (existing != null) {
+                notes.save(existing.copy(type = type, text = text))
+                return@launch
+            }
+            val page = books.find(bookId)?.currentPage?.takeIf { it > 0 }
+            notes.save(Note(bookId = bookId, type = type, text = text, page = page))
+        }
+    }
+
+    /**
+     * Exclui uma nota do diário.
+     *
+     * @param note nota a ser removida.
+     */
+    fun deleteNote(note: Note) {
+        viewModelScope.launch {
+            notes.delete(note.id)
+        }
+    }
+
+    /**
      * Exclui o livro com as notas e sessões dele e avisa a tela para voltar ao Início.
      */
     fun deleteBook() {
@@ -101,7 +135,7 @@ class DetailViewModel(
         val Factory = viewModelFactory {
             initializer {
                 val app = this[APPLICATION_KEY] as ReadingApp
-                DetailViewModel(createSavedStateHandle(), app.books, app.sessions)
+                DetailViewModel(createSavedStateHandle(), app.books, app.notes, app.sessions)
             }
         }
     }

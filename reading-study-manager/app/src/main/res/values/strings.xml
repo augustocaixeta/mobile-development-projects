@@ -94,6 +94,24 @@
     <string name="error_page_above_total">A página vai até %1$s</string>
     <string name="delete_book_title">Excluir livro?</string>
     <string name="delete_book_message">As notas e as sessões de leitura deste livro também serão apagadas.</string>
+    <string name="notes_header">notas</string>
+    <plurals name="notes_count">
+        <item quantity="one">%d nota</item>
+        <item quantity="other">%d notas</item>
+    </plurals>
+    <string name="notes_empty">Nenhuma nota ainda. Registre anotações, insights e citações favoritas.</string>
+    <string name="action_add_note">+ Nova nota</string>
+    <string name="action_delete_note">Excluir nota</string>
+    <string name="note_dialog_new">Nova nota</string>
+    <string name="note_dialog_edit">Editar nota</string>
+    <string name="note_text_label">Texto da nota</string>
+    <string name="note_text_placeholder">Escreva aqui</string>
+    <string name="error_note_required">Escreva a nota</string>
+    <string name="note_type_annotation">Anotação</string>
+    <string name="note_type_insight">Insight</string>
+    <string name="note_type_quote">Citação</string>
+    <string name="note_type_quote_long">Citação favorita</string>
+    <string name="note_page_format">pág %1$s</string>
 
     <string name="session_title">Sessão de leitura</string>
 
