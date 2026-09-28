@@ -142,4 +142,49 @@
     <string name="discard_dialog_message">O tempo e as marcações desta sessão não serão salvos.</string>
 
     <string name="performance_title">Desempenho</string>
+    <string name="performance_tab_week">Semana</string>
+    <string name="performance_tab_month">Mês</string>
+    <string name="performance_tab_year">Ano</string>
+    <string name="performance_pages_read">Páginas lidas</string>
+    <string name="performance_previous_week">semana passada</string>
+    <string name="performance_previous_month">mês passado</string>
+    <string name="performance_previous_year">ano passado</string>
+    <string name="performance_change_up">+%1$d%% vs. %2$s</string>
+    <string name="performance_change_down">%1$d%% vs. %2$s</string>
+    <string name="performance_no_previous">Sem leituras para comparar com %1$s</string>
+    <string name="performance_week_label">SEM %1$d</string>
+    <string name="performance_bar_description">%1$s: %2$s</string>
+    <string name="performance_stat_books">Livros</string>
+    <string name="performance_stat_pages">Páginas</string>
+    <string name="performance_stat_streak">Sequência</string>
+    <string name="performance_achievements">conquistas recentes</string>
+    <string name="performance_achievements_empty">Termine um livro ou bata a meta do mês para ver suas conquistas aqui.</string>
+    <string name="achievement_book_title">%1$s concluído</string>
+    <plurals name="achievement_days">
+        <item quantity="one">%1$d dia</item>
+        <item quantity="other">%1$d dias</item>
+    </plurals>
+    <plurals name="achievement_record_gain">
+        <item quantity="one">-%1$d dia</item>
+        <item quantity="other">-%1$d dias</item>
+    </plurals>
+    <string name="achievement_record">recorde pessoal</string>
+    <string name="achievement_on_time">no prazo</string>
+    <string name="achievement_late">após o prazo</string>
+    <string name="achievement_reading_time">tempo de leitura</string>
+    <string name="achievement_goal_title">Meta mensal batida</string>
+    <string name="achievement_goal_subtitle">%1$s em %2$s</string>
+    <plurals name="achievement_goal_extra">
+        <item quantity="one">+%1$s pág</item>
+        <item quantity="other">+%1$s págs</item>
+    </plurals>
+    <plurals name="achievement_goal_status">
+        <item quantity="one">meta de %1$s pág</item>
+        <item quantity="other">meta de %1$s págs</item>
+    </plurals>
+    <string name="action_set_goal">Definir meta mensal</string>
+    <string name="goal_dialog_message">Quantas páginas você quer ler por mês?</string>
+    <string name="goal_dialog_label">Páginas por mês</string>
+    <string name="error_goal_required">Informe a meta</string>
+    <string name="error_goal_zero">A meta precisa ser maior que zero</string>
 </resources>

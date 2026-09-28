@@ -55,7 +55,10 @@ fun ReadingNavHost(navController: NavHostController = rememberNavController()) {
             SessionScreen(onClose = { navController.popFrom(entry) })
         }
         composable<Performance> { entry ->
-            PerformanceScreen(onBack = { navController.popFrom(entry) })
+            PerformanceScreen(
+                onBack = { navController.popFrom(entry) },
+                onOpenBook = { bookId -> navController.navigateFrom(entry, BookDetail(bookId)) }
+            )
         }
     }
 }
