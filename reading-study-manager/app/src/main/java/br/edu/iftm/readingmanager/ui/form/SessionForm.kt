@@ -11,25 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.DatePicker
-import androidx.compose.material3.DatePickerDefaults
-import androidx.compose.material3.DatePickerDialog
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.SelectableDates
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TimePicker
-import androidx.compose.material3.TimePickerDefaults
-import androidx.compose.material3.rememberDatePickerState
-import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
@@ -68,11 +56,9 @@ import br.edu.iftm.readingmanager.ui.components.bottomBorder
 import br.edu.iftm.readingmanager.ui.theme.ReadingTheme
 import br.edu.iftm.readingmanager.util.Formats
 import br.edu.iftm.readingmanager.util.toEpochMillis
-import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.ZoneOffset
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -424,8 +410,9 @@ private fun SessionFormContent(
         )
     }
     if (showDate) {
-        SessionDateDialog(
+        FormDateDialog(
             date = state.date,
+            limit = DateLimit.UNTIL_TODAY,
             onDismiss = { showDate = false },
             onConfirm = { date ->
                 showDate = false
@@ -434,7 +421,8 @@ private fun SessionFormContent(
         )
     }
     if (showTime) {
-        SessionTimeDialog(
+        FormTimeDialog(
+            title = stringResource(R.string.session_form_start),
             time = state.time,
             onDismiss = { showTime = false },
             onConfirm = { time ->
@@ -520,96 +508,4 @@ private fun BookPickerDialog(
         }
         PlainButton(text = stringResource(R.string.action_cancel), onClick = onDismiss)
     }
-}
-
-/**
- * Calendário para escolher o dia da sessão, sem permitir dias futuros.
- *
- * @param date dia escolhido no momento.
- * @param onDismiss fecha o calendário sem trocar.
- * @param onConfirm recebe o novo dia.
- */
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun SessionDateDialog(date: LocalDate, onDismiss: () -> Unit, onConfirm: (LocalDate) -> Unit) {
-    val colors = ReadingTheme.colors
-    val todayMillis = remember { LocalDate.now().atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli() }
-    val state = rememberDatePickerState(
-        initialSelectedDateMillis = date.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli(),
-        selectableDates = remember(todayMillis) { UntilDate(todayMillis) }
-    )
-    val pickerColors = DatePickerDefaults.colors(containerColor = colors.surface)
-    DatePickerDialog(
-        onDismissRequest = onDismiss,
-        confirmButton = {
-            TextButton(
-                onClick = {
-                    val millis = state.selectedDateMillis
-                    if (millis != null) {
-                        onConfirm(Instant.ofEpochMilli(millis).atZone(ZoneOffset.UTC).toLocalDate())
-                    } else {
-                        onDismiss()
-                    }
-                }
-            ) {
-                Text(text = stringResource(R.string.action_save), color = colors.text)
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(text = stringResource(R.string.action_cancel), color = colors.text2)
-            }
-        },
-        colors = pickerColors
-    ) {
-        DatePicker(state = state, colors = pickerColors)
-    }
-}
-
-/**
- * Relógio para escolher o horário de início da sessão, no formato de 24 horas.
- *
- * @param time horário escolhido no momento.
- * @param onDismiss fecha o relógio sem trocar.
- * @param onConfirm recebe o novo horário.
- */
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun SessionTimeDialog(time: LocalTime, onDismiss: () -> Unit, onConfirm: (LocalTime) -> Unit) {
-    val colors = ReadingTheme.colors
-    val state = rememberTimePickerState(initialHour = time.hour, initialMinute = time.minute, is24Hour = true)
-    CardDialog(title = stringResource(R.string.session_form_start), onDismiss = onDismiss) {
-        TimePicker(
-            state = state,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            colors = TimePickerDefaults.colors(
-                clockDialColor = colors.surface2,
-                selectorColor = colors.accent,
-                containerColor = colors.surface,
-                timeSelectorSelectedContainerColor = colors.surface2,
-                timeSelectorUnselectedContainerColor = colors.bg,
-                timeSelectorSelectedContentColor = colors.text,
-                timeSelectorUnselectedContentColor = colors.text2
-            )
-        )
-        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            PrimaryButton(
-                text = stringResource(R.string.action_save),
-                onClick = { onConfirm(LocalTime.of(state.hour, state.minute)) }
-            )
-            PlainButton(text = stringResource(R.string.action_cancel), onClick = onDismiss)
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-private class UntilDate(private val lastMillis: Long) : SelectableDates {
-
-    /**
-     * Libera no calendário apenas os dias até o limite, bloqueando os futuros.
-     *
-     * @param utcTimeMillis início do dia em UTC, como o calendário informa.
-     * @return true quando o dia pode ser escolhido.
-     */
-    override fun isSelectableDate(utcTimeMillis: Long): Boolean = utcTimeMillis <= lastMillis
 }
