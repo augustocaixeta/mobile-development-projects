@@ -1,47 +1,47 @@
 package br.edu.iftm.readingmanager.ui.theme
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.text.selection.LocalTextSelectionColors
+import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
+object ReadingTheme {
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-)
+    val colors: ReadingColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalReadingColors.current
 
+    val typography: ReadingTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalReadingTypography.current
+}
+
+/**
+ * Tema do Ler+, sempre escuro, com as cores e a tipografia do protótipo no Figma.
+ * Também configura o Material 3 para que os componentes nativos sigam a mesma identidade.
+ *
+ * @param content conteúdo que recebe o tema.
+ */
 @Composable
-fun ReadingStudyManagerTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
-) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
+fun ReadingTheme(content: @Composable () -> Unit) {
+    val colors = DarkPalette
+    val selection = TextSelectionColors(
+        handleColor = colors.accent,
+        backgroundColor = colors.accent.copy(alpha = 0.3f)
     )
+    MaterialTheme(
+        colorScheme = colors.toColorScheme(),
+        typography = materialTypography()
+    ) {
+        CompositionLocalProvider(
+            LocalReadingColors provides colors,
+            LocalReadingTypography provides DefaultTypography,
+            LocalTextSelectionColors provides selection,
+            content = content
+        )
+    }
 }

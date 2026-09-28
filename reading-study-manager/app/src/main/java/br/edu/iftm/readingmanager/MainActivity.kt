@@ -1,47 +1,38 @@
 package br.edu.iftm.readingmanager
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import br.edu.iftm.readingmanager.ui.theme.ReadingStudyManagerTheme
+import br.edu.iftm.readingmanager.ui.theme.ReadingTheme
 
 class MainActivity : ComponentActivity() {
+
+    /**
+     * Desenha o app de ponta a ponta com ícones claros nas barras do sistema, já que o tema é escuro.
+     *
+     * @param savedInstanceState estado salvo pelo sistema, se houver.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT)
+        )
         setContent {
-            ReadingStudyManagerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            ReadingTheme {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(ReadingTheme.colors.bg)
+                )
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ReadingStudyManagerTheme {
-        Greeting("Android")
     }
 }
